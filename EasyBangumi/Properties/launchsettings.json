@@ -1,10 +1,10 @@
-﻿{
-    "profiles": {
-      "EasyBangumi (Package)": {
-        "commandName": "MsixPackage"
-      },
-      "EasyBangumi (Unpackaged)": {
-        "commandName": "Project"
-      }
+{
+  "profiles": {
+    "EasyBangumi (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "EasyBangumi (Unpackaged)": {
+      "commandName": "Project"
     }
+  }
 }
