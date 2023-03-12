@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "EasyBangumi (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "EasyBangumi (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
