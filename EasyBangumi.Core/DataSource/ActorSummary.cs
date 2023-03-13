@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EasyBangumi.Core.DataSource;
-public class BangumiCoverSummary
+public class ActorSummary // 演员
 {
     public int ID;
 
     public string Name;
 
-    public string Cover;
+    public string Summary;
 
-    public string CoverGrid;
+    public string Cover;
 }

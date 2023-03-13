@@ -1,49 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using EasyBangumi.Core.DataSource.bgm.dto;
+using Newtonsoft.Json.Linq;
 
 namespace EasyBangumi.Core.DataSource.bgm.dto;
-
-public class Images2
-{
-    /// <summary>
-    /// 
-    /// </summary>
-    public string small
-    {
-        get; set;
-    }
-    /// <summary>
-    /// 
-    /// </summary>
-    public string grid
-    {
-        get; set;
-    }
-    /// <summary>
-    /// 
-    /// </summary>
-    public string large
-    {
-        get; set;
-    }
-    /// <summary>
-    /// 
-    /// </summary>
-    public string medium
-    {
-        get; set;
-    }
-    /// <summary>
-    /// 
-    /// </summary>
-    public string common
-    {
-        get; set;
-    }
-}
 
 public class TagsItem
 {
@@ -165,7 +127,7 @@ public class SubjectRoot
     /// <summary>
     /// 
     /// </summary>
-    public Images2 images
+    public BangumiImages images
     {
         get; set;
     }
@@ -200,7 +162,7 @@ public class SubjectRoot
     /// <summary>
     /// 
     /// </summary>
-    public List<InfoboxItem> infobox
+    public JArray infobox
     {
         get; set;
     }
@@ -256,7 +218,7 @@ public class SubjectRoot
     /// <summary>
     /// 
     /// </summary>
-    public string nsfw
+    public bool nsfw
     {
         get; set;
     }

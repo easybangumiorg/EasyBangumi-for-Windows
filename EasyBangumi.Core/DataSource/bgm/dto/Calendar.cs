@@ -45,34 +45,6 @@ public class Rating
     }
 }
 
-public class Images
-{
-    public string large
-    {
-        get; set;
-    }
-
-    public string common
-    {
-        get; set;
-    }
-
-    public string medium
-    {
-        get; set;
-    }
-
-    public string small
-    {
-        get; set;
-    }
-
-    public string grid
-    {
-        get; set;
-    }
-}
-
 public class Collection
 {
     public int doing
@@ -133,7 +105,7 @@ public class ItemsItem
         get; set;
     }
 
-    public Images images
+    public BangumiImages images
     {
         get; set;
     }
