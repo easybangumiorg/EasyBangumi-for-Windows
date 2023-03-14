@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyBangumi.Core.DataSource;
+namespace EasyBangumi.Core.DataSource.Summary;
 public class BangumiSummary
 {
     public int ID;
@@ -21,7 +21,7 @@ public class BangumiSummary
 
     public Dictionary<string, int> Tags;
 
-    public Dictionary<string , string> Info;
+    public Dictionary<string, string> Info;
 
     public double Score;
 

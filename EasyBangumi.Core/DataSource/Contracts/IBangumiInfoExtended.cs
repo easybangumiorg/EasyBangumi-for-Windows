@@ -3,22 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EasyBangumi.Core.DataSource.Summary;
 
-namespace EasyBangumi.Core.DataSource;
-public interface IDataSource
-{
-    // 番剧周表
-    Task<List<List<BangumiCoverSummary>>> Calendar();
-
-    // 根据ID获取番剧信息
-    Task<BangumiSummary> GetBangumiByID(int id);
-
-    // 搜索番剧
-    Task<List<BangumiCoverSummary>> Search(string keyword);
-}
-
-
-public interface IDataSourceExtended: IDataSource
+namespace EasyBangumi.Core.DataSource.Contracts;
+public interface IBangumiInfoExtended
 {
     // 获取角色信息
     Task<List<CharacterSummary>> GetCharacterSummariesByID(int id);

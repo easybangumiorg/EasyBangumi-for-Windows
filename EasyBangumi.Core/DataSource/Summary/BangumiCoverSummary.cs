@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyBangumi.Core.DataSource;
-public class ProducerSummary // 创作团队
+namespace EasyBangumi.Core.DataSource.Summary;
+public class BangumiCoverSummary
 {
     public int ID;
 
     public string Name;
 
-    public string Relation;
-
     public string Cover;
+
+    public string CoverGrid;
 }

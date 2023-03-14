@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyBangumi.Core.DataSource;
+namespace EasyBangumi.Core.DataSource.Summary;
 public class SubjectSummary
 {
     public int ID;

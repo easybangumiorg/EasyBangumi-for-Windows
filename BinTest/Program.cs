@@ -1,7 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information'
-using EasyBangumi.Core.DataSource.bgm;
+using EasyBangumi.Core.DataSource;
+using EasyBangumi.Core.DataSource.Contracts;
+using EasyBangumi.Core.Services;
 
-var bgm = new Bgmtv();
+var dss = new DataSourceServices();
+var bgm = (IBangumiInfo)new DataSourceSelector().Target;
 
 async Task TestCalendar()
 {
@@ -20,8 +23,7 @@ async Task TestCalendar()
 
 async Task TestGetBgmByID()
 {
-    var summary = await bgm.GetBangumiByID(296739);
-
+    var summary = await bgm.GetBangumiByID(395714);
     Console.WriteLine(summary.Name);
     Console.WriteLine(summary.Summary);
     Console.WriteLine("\n----- 番剧信息 -----");
@@ -40,6 +42,25 @@ async Task TestSearch()
     {
         Console.WriteLine($"{item.ID}: {item.Name}");
     }
+
 }
 
-await TestSearch();
+
+async Task TestException()
+{
+    await dss.Search("水");
+    //await dss.Search("水", 1001);
+
+    //await dss.GetInfo(new EasyBangumi.Core.DataSource.Summary.BangumiCoverSummary() { ID = 1145141919 });
+
+    //await dss.Calendar();
+
+    var today = await dss.DailyUpdate();
+    Console.WriteLine("----- 今日更新 -----");
+    today.ForEach(bgm => { 
+        Console.WriteLine($"{bgm.Name}");
+    });
+
+}
+
+await TestException();

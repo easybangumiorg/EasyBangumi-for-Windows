@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EasyBangumi.Core.BangumiSources;
-internal class cycdm
+internal class Cycdm
 {
 }

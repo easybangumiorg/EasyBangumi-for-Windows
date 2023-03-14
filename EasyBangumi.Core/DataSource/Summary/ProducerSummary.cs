@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyBangumi.Core.DataSource;
-public class ActorSummary // 演员
+namespace EasyBangumi.Core.DataSource.Summary;
+public class ProducerSummary // 创作团队
 {
     public int ID;
 
     public string Name;
 
-    public string Summary;
+    public string Relation;
 
     public string Cover;
 }
