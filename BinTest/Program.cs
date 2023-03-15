@@ -2,13 +2,13 @@
 using EasyBangumi.Core.DataSource;
 using EasyBangumi.Core.DataSource.Contracts;
 using EasyBangumi.Core.Services;
+using EasyBangumi.Core.DataSource.Summary;
 
-var dss = new DataSourceServices();
-var bgm = (IBangumiInfo)new DataSourceSelector().Target;
+var dss = new DataSourceService();
 
 async Task TestCalendar()
 {
-    var calendar = await bgm.Calendar();
+    var calendar = await dss.Calendar();
 
     calendar.ForEach(it =>
     {
@@ -23,7 +23,7 @@ async Task TestCalendar()
 
 async Task TestGetBgmByID()
 {
-    var summary = await bgm.GetBangumiByID(395714);
+    var summary = await dss.GetInfo(new BangumiCoverSummary() { ID = 395714 });
     Console.WriteLine(summary.Name);
     Console.WriteLine(summary.Summary);
     Console.WriteLine("\n----- 番剧信息 -----");
@@ -35,7 +35,7 @@ async Task TestGetBgmByID()
 
 async Task TestSearch()
 {
-    var summary = await bgm.Search("转生王女");
+    var summary = await dss.Search("转生王女");
 
     Console.WriteLine("\n----- 搜索 -----");
     foreach (var item in summary)

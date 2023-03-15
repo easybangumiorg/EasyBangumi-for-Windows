@@ -3,10 +3,10 @@ using System.Text.Json.Nodes;
 using System.Xml.Linq;
 using EasyBangumi.Core.DataSource.bgm.dto;
 using EasyBangumi.Core.DataSource.Contracts;
+using EasyBangumi.Core.DataSource.Models;
 using EasyBangumi.Core.DataSource.Summary;
 using EasyBangumi.Core.Exceptions;
 using EasyBangumi.Core.Helpers;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 
@@ -27,9 +27,9 @@ public class Bgmtv : IDataSource, IBangumiInfo
 
     private readonly RestClient client = new("https://api.bgm.tv");
 
-    public async Task<List<List<BangumiCoverSummary>>> Calendar()
+    public async Task<BangumiCalendar> Calendar()
     {
-        var summary = new List<List<BangumiCoverSummary>>();
+        var summary = new BangumiCalendar();
 
         var request = new RestRequest("/calendar");
         var content = await client.GetAsync(request);
@@ -38,7 +38,7 @@ public class Bgmtv : IDataSource, IBangumiInfo
 
         calendarData.ForEach(it =>
         {
-            var list = new List<BangumiCoverSummary>();
+            var list = new BangumiCoverCollection();
 
             foreach (var item in it.items)
             {
@@ -115,14 +115,14 @@ public class Bgmtv : IDataSource, IBangumiInfo
 
     private readonly Dictionary<string, int> SearchCounts = new();
 
-    public async Task<List<BangumiCoverSummary>> Search(string keyword, int start = 0)
+    public async Task<BangumiCoverCollection> Search(string keyword, int start = 0)
     {
         if (SearchCounts.ContainsKey(keyword) && SearchCounts[keyword] < start || start < 0)
         {
             throw new SearchUncompleteException(ExceptionType.OutOfRange);
         }
 
-        var list = new List<BangumiCoverSummary>();
+        var list = new BangumiCoverCollection();
         var request = new RestRequest($"/search/subject/{keyword}");
         request.AddQueryParameter("type", 2);
         if (start > 0)

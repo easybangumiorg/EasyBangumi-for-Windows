@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using EasyBangumi.Core.Contracts.Services;
 using EasyBangumi.Core.DataSource;
 using EasyBangumi.Core.DataSource.Contracts;
+using EasyBangumi.Core.DataSource.Models;
 using EasyBangumi.Core.DataSource.Summary;
 using EasyBangumi.Core.Exceptions;
 using EasyBangumi.Core.Models;
 
 namespace EasyBangumi.Core.Services;
-public class DataSourceServices : IDataSourceServices
+public class DataSourceService : IDataSourceServices
 {
     private readonly DataSourceSelector _source = new();
 
@@ -60,7 +61,7 @@ public class DataSourceServices : IDataSourceServices
         }
     }
 
-    public async Task<List<BangumiCoverSummary>> Search(string keyword, int point = 0)
+    public async Task<BangumiCoverCollection> Search(string keyword, int point = 0)
     {
         var source = CanUseBangumiInfo ?
             _source.Target as IBangumiInfo :
@@ -93,9 +94,9 @@ public class DataSourceServices : IDataSourceServices
         }
     }
 
-    private List<List<BangumiCoverSummary>> _calendar = null;
+    private BangumiCalendar _calendar = null;
 
-    public async Task<List<BangumiCoverSummary>> DailyUpdate()
+    public async Task<BangumiCoverCollection> DailyUpdate()
     {
         _ = CanUseBangumiInfo ?
             _source.Target as IBangumiInfo :
@@ -109,7 +110,7 @@ public class DataSourceServices : IDataSourceServices
         return _calendar[Convert.ToInt32(DateTime.Now.DayOfWeek)];
     }
 
-    public async Task<List<BangumiCoverSummary>> DailyUpdate(int Week)
+    public async Task<BangumiCoverCollection> DailyUpdate(int Week)
     {
         _ = CanUseBangumiInfo ?
             _source.Target as IBangumiInfo :
@@ -123,7 +124,7 @@ public class DataSourceServices : IDataSourceServices
         return _calendar[Week + 1];
     }
 
-    public async Task<List<List<BangumiCoverSummary>>> Calendar()
+    public async Task<BangumiCalendar> Calendar()
     {
         var source = CanUseBangumiInfo ?
             _source.Target as IBangumiInfo :
