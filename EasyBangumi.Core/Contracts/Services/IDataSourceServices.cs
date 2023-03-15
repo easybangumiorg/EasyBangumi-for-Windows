@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasyBangumi.Core.DataSource.Models;
-using EasyBangumi.Core.DataSource.Summary;
+using EasyBangumi.Core.DataSource.Models;
 using EasyBangumi.Core.Models;
 
 namespace EasyBangumi.Core.Contracts.Services;
-public interface IDataSourceServices
+public interface IDataSourceService
 {
     // 获取每日更新
     public Task<BangumiCoverCollection> DailyUpdate();

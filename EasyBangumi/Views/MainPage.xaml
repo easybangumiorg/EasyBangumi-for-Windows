@@ -4,9 +4,48 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:animations="using:CommunityToolkit.WinUI.UI.Animations"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:models="using:EasyBangumi.Core.DataSource.Models"
     mc:Ignorable="d">
 
-    <Grid x:Name="ContentArea">
-        
-    </Grid>
+    <StackPanel Margin="{StaticResource NavigationViewPageContentMargin}">
+        <TextBlock  
+            Margin="{StaticResource AppBarBottomThemePadding}"
+            Style="{StaticResource TitleTextBlockStyle}"
+            Text="最近更新"/>
+
+        <Grid x:Name="ContentArea" >
+
+            <controls:AdaptiveGridView
+                animations:Connected.ListItemElementName="itemThumbnail"
+                animations:Connected.ListItemKey="animationKeyContentGrid"
+                DesiredWidth="180"
+                ItemHeight="280"
+                IsItemClickEnabled="True"
+                ItemClickCommand="{x:Bind ViewModel.ItemClickCommand}"
+                ItemsSource="{x:Bind ViewModel.Source,Mode=OneWay}"
+                SelectionMode="None"
+                StretchContentForSingleRow="False">
+
+                <controls:AdaptiveGridView.ItemTemplate>
+                    <DataTemplate x:DataType="models:BangumiCoverSummary">
+                        <Grid
+                        x:Name="itemThumbnail"
+                        Padding="{StaticResource XSmallLeftTopRightBottomMargin}">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="{x:Bind Cover}" MaxWidth="180" MaxHeight="220" />
+                                <TextBlock
+                                Margin="{StaticResource XXSmallTopMargin}"
+                                HorizontalAlignment="Center"
+                                Style="{ThemeResource BodyTextStyle}"
+                                Text="{x:Bind Name}" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </controls:AdaptiveGridView.ItemTemplate>
+            </controls:AdaptiveGridView>
+
+        </Grid>
+    </StackPanel>
 </Page>

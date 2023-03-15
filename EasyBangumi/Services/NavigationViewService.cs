@@ -8,6 +8,11 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace EasyBangumi.Services;
 
+/**
+ * NavigationViewService 视图导航服务
+ * 
+ * 当导航目标在ShellPage注册，将会与ShellPage中的NavigationViewControl元素联动
+ */
 public class NavigationViewService : INavigationViewService
 {
     private readonly INavigationService _navigationService;

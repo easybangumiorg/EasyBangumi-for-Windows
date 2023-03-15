@@ -4,6 +4,7 @@ using EasyBangumi.Core.Contracts.Services;
 using EasyBangumi.Core.Services;
 using EasyBangumi.Helpers;
 using EasyBangumi.Models;
+using EasyBangumi.Notifications;
 using EasyBangumi.Services;
 using EasyBangumi.ViewModels;
 using EasyBangumi.Views;
@@ -51,23 +52,30 @@ public partial class App : Application
         ConfigureServices((context, services) =>
         {
             // Default Activation Handler
-            services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>();
+            services.AddTransient<ActivationHandler<LaunchActivatedEventArgs>, DefaultActivationHandler>(); // 启动处理器
 
             // Other Activation Handlers
+            services.AddTransient<IActivationHandler, AppNotificationActivationHandler>(); // 通知处理器
 
             // Services
-            services.AddSingleton<ILocalSettingsService, LocalSettingsService>();
-            services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
-            services.AddTransient<INavigationViewService, NavigationViewService>();
-
-            services.AddSingleton<IActivationService, ActivationService>();
-            services.AddSingleton<IPageService, PageService>();
-            services.AddSingleton<INavigationService, NavigationService>();
+            services.AddSingleton<IAppNotificationService, AppNotificationService>(); // 通知服务
+            services.AddSingleton<ILocalSettingsService, LocalSettingsService>();     // 本地设置服务
+            services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();     // 主题服务
+            services.AddTransient<INavigationViewService, NavigationViewService>();   // 导航控件服务
+            services.AddSingleton<IActivationService, ActivationService>(); // 激活服务
+            services.AddSingleton<IPageService, PageService>();             // 页面服务
+            services.AddSingleton<INavigationService, NavigationService>(); // 导航服务
 
             // Core Services
+            services.AddSingleton<ISampleDataService, SampleDataService>(); // 示例数据生成器
             services.AddSingleton<IFileService, FileService>();
+            services.AddSingleton<IDataSourceService, DataSourceService>(); // 数据源服务
 
             // Views and ViewModels
+            services.AddTransient<BangumiDetailViewModel>();
+            services.AddTransient<BangumiDetailPage>();
+
+            // 主视图和视图模型
             services.AddTransient<SettingsViewModel>();
             services.AddTransient<SettingsPage>();
             services.AddTransient<MainViewModel>();
@@ -79,6 +87,8 @@ public partial class App : Application
             services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
         }).
         Build();
+
+        App.GetService<IAppNotificationService>().Initialize();
 
         UnhandledException += App_UnhandledException;
     }
@@ -92,6 +102,9 @@ public partial class App : Application
     protected async override void OnLaunched(LaunchActivatedEventArgs args)
     {
         base.OnLaunched(args);
+
+        // 一个示例的通知
+        // App.GetService<IAppNotificationService>().Show(string.Format("AppNotificationSamplePayload".GetLocalized(), AppContext.BaseDirectory));
 
         await App.GetService<IActivationService>().ActivateAsync(args);
     }

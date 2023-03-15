@@ -7,12 +7,12 @@ using EasyBangumi.Core.Contracts.Services;
 using EasyBangumi.Core.DataSource;
 using EasyBangumi.Core.DataSource.Contracts;
 using EasyBangumi.Core.DataSource.Models;
-using EasyBangumi.Core.DataSource.Summary;
+using EasyBangumi.Core.DataSource.Models;
 using EasyBangumi.Core.Exceptions;
 using EasyBangumi.Core.Models;
 
 namespace EasyBangumi.Core.Services;
-public class DataSourceService : IDataSourceServices
+public class DataSourceService : IDataSourceService
 {
     private readonly DataSourceSelector _source = new();
 

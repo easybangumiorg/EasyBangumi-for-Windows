@@ -8,11 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\Sources\Compent\" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="RestSharp" Version="108.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    <PackageReference Include="RestSharp" Version="108.0.3" />
+    <Folder Include="BangumiSources\" />
+    <Folder Include="Contracts\Sources\" />
   </ItemGroup>
 </Project>

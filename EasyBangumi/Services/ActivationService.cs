@@ -7,6 +7,13 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace EasyBangumi.Services;
 
+/**
+ * ActivationService 激活服务
+ * 
+ * 提供App启动的默认行为
+ * 
+ * 载入ShellPage
+ * */
 public class ActivationService : IActivationService
 {
     private readonly ActivationHandler<LaunchActivatedEventArgs> _defaultHandler;

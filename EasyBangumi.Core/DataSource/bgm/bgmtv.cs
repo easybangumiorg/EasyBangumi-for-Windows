@@ -4,7 +4,7 @@ using System.Xml.Linq;
 using EasyBangumi.Core.DataSource.bgm.dto;
 using EasyBangumi.Core.DataSource.Contracts;
 using EasyBangumi.Core.DataSource.Models;
-using EasyBangumi.Core.DataSource.Summary;
+using EasyBangumi.Core.DataSource.Models;
 using EasyBangumi.Core.Exceptions;
 using EasyBangumi.Core.Helpers;
 using Newtonsoft.Json.Linq;

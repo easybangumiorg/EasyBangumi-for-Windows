@@ -11,6 +11,11 @@ using Windows.Storage;
 
 namespace EasyBangumi.Services;
 
+/**
+ * LocalSettingsService 设置服务
+ * 
+ * 提供读取、设置和设置文件自动读取
+ * */
 public class LocalSettingsService : ILocalSettingsService
 {
     private const string _defaultApplicationDataFolder = "EasyBangumi/ApplicationData";

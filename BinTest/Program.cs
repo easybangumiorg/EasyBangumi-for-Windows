@@ -2,7 +2,7 @@
 using EasyBangumi.Core.DataSource;
 using EasyBangumi.Core.DataSource.Contracts;
 using EasyBangumi.Core.Services;
-using EasyBangumi.Core.DataSource.Summary;
+using EasyBangumi.Core.DataSource.Models;
 
 var dss = new DataSourceService();
 

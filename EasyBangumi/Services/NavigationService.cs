@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
+using CommunityToolkit.WinUI.UI.Animations;
+
 using EasyBangumi.Contracts.Services;
 using EasyBangumi.Contracts.ViewModels;
 using EasyBangumi.Helpers;
@@ -11,6 +13,13 @@ namespace EasyBangumi.Services;
 
 // For more information on navigation between pages see
 // https://github.com/microsoft/TemplateStudio/blob/main/docs/WinUI/navigation.md
+/**
+ * NavigationService 基本导航服务
+ * 
+ * 提供默认导航（MainWindow），判断可以返回上一页，返回上一页、导航到、导航回调
+ * 
+ * 当目标页面实现INavigationAware，即可实现回调函数
+ * */
 public class NavigationService : INavigationService
 {
     private readonly IPageService _pageService;
@@ -123,4 +132,6 @@ public class NavigationService : INavigationService
             Navigated?.Invoke(sender, e);
         }
     }
+
+    public void SetListDataItemForNextConnectedAnimation(object item) => Frame.SetListDataItemForNextConnectedAnimation(item);
 }

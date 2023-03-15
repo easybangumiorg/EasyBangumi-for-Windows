@@ -5,6 +5,11 @@ using Microsoft.UI.Xaml;
 
 namespace EasyBangumi.Services;
 
+/**
+ * ThemeSelectorService 主题选择服务
+ * 
+ * 提供主题持久化存储、设置主题等服务
+ */
 public class ThemeSelectorService : IThemeSelectorService
 {
     private const string SettingsKey = "AppBackgroundRequestedTheme";

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasyBangumi.Core.DataSource.Models;
-using EasyBangumi.Core.DataSource.Summary;
+using EasyBangumi.Core.DataSource.Models;
 
 namespace EasyBangumi.Core.DataSource.Contracts;
 public interface IBangumiInfo

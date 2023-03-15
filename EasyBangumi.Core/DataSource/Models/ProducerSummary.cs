@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyBangumi.Core.DataSource.Summary;
+namespace EasyBangumi.Core.DataSource.Models;
 public class ProducerSummary // 创作团队
 {
     public int ID;

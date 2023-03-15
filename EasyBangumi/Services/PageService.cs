@@ -8,6 +8,9 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace EasyBangumi.Services;
 
+/**
+ * PageService 用于注册视图和视图模型
+ * */
 public class PageService : IPageService
 {
     private readonly Dictionary<string, Type> _pages = new();
@@ -16,6 +19,7 @@ public class PageService : IPageService
     {
         Configure<MainViewModel, MainPage>();
         Configure<SettingsViewModel, SettingsPage>();
+        Configure<BangumiDetailViewModel, BangumiDetailPage>();
     }
 
     public Type GetPageType(string key)
