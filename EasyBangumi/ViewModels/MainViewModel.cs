@@ -52,7 +52,7 @@ public partial class MainViewModel : ObservableRecipient, INavigationAware
         if (clickedItem != null)
         {
             _navigationService.SetListDataItemForNextConnectedAnimation(clickedItem);
-            _navigationService.NavigateTo(typeof(BangumiDetailViewModel).FullName!, clickedItem.ID);
+            _navigationService.NavigateTo(typeof(BangumiDetailViewModel).FullName!, clickedItem);
         }
     }
 }

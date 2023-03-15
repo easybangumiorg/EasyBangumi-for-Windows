@@ -2,32 +2,32 @@
 
 using EasyBangumi.Contracts.ViewModels;
 using EasyBangumi.Core.Contracts.Services;
-using EasyBangumi.Core.Models;
+using EasyBangumi.Core.DataSource.Models;
 
 namespace EasyBangumi.ViewModels;
 
-public class BangumiDetailViewModel : ObservableRecipient, INavigationAware
+public partial class BangumiDetailViewModel : ObservableRecipient, INavigationAware
 {
-    private readonly ISampleDataService _sampleDataService;
-    private SampleOrder? _item;
+    private readonly IDataSourceService _dataSourceService;
 
-    public SampleOrder? Item
-    {
-        get => _item;
-        set => SetProperty(ref _item, value);
-    }
+    [ObservableProperty]
+    private BangumiSummary? _item;
 
-    public BangumiDetailViewModel(ISampleDataService sampleDataService)
+    [ObservableProperty]
+    private BangumiCoverSummary? _cover;
+
+    public BangumiDetailViewModel(IDataSourceService dataSourceService)
     {
-        _sampleDataService = sampleDataService;
+        _dataSourceService = dataSourceService;
     }
 
     public async void OnNavigatedTo(object parameter)
     {
-        if (parameter is long orderID)
+        if (parameter is BangumiCoverSummary coverSummary)
         {
-            var data = await _sampleDataService.GetContentGridDataAsync();
-            Item = data.First(i => i.OrderID == orderID);
+            _cover = coverSummary;
+            // TODO: 异常处理
+            Item = await _dataSourceService.GetInfo(coverSummary);
         }
     }
 

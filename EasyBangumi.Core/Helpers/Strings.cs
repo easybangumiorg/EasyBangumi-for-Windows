@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EasyBangumi.Core.Helpers;
-public static class Strings
+public class Strings
 {
-    public static readonly string UserAgent = "easybangumiorg/EasyBangumi-For-Windows/1.0.0 (Windows) (https://github.com/easybangumiorg/EasyBangumi-For-Windows)";
+    public static readonly string UserAgent = "easybangumiorg/EasyBangumi-for-Windows/1.0.3 (Windows) (https://github.com/easybangumiorg/EasyBangumi-for-Windows)";
 }

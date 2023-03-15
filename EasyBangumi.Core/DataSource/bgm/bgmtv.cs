@@ -25,7 +25,13 @@ public class Bgmtv : IDataSource, IBangumiInfo
 
     public string OfficialWebsite => "https://bgm.tv/";
 
-    private readonly RestClient client = new("https://api.bgm.tv");
+    private readonly RestClient client;
+
+    public Bgmtv()
+    {
+        client = new RestClient("https://api.bgm.tv");
+        client.AddDefaultHeader("User-Agent", Strings.UserAgent);
+    }
 
     public async Task<BangumiCalendar> Calendar()
     {
