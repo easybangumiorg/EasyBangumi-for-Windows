@@ -7,7 +7,6 @@ using EasyBangumi.Core.Contracts.Services;
 using EasyBangumi.Core.DataSource;
 using EasyBangumi.Core.DataSource.Contracts;
 using EasyBangumi.Core.DataSource.Models;
-using EasyBangumi.Core.DataSource.Models;
 using EasyBangumi.Core.Exceptions;
 using EasyBangumi.Core.Models;
 
@@ -107,7 +106,10 @@ public class DataSourceService : IDataSourceService
             await Calendar();
         }
 
-        return _calendar[Convert.ToInt32(DateTime.Now.DayOfWeek)];
+        // 取昨天更新的
+        var dayOfWeek = (Convert.ToInt32(DateTime.Now.DayOfWeek) + 5) % 7;
+
+        return _calendar[dayOfWeek];
     }
 
     public async Task<BangumiCoverCollection> DailyUpdate(int Week)

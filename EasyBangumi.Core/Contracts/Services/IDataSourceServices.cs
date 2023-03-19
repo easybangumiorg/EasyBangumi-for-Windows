@@ -10,7 +10,7 @@ using EasyBangumi.Core.Models;
 namespace EasyBangumi.Core.Contracts.Services;
 public interface IDataSourceService
 {
-    // 获取每日更新
+    // 获取每日更新（请返回昨天更新的）
     public Task<BangumiCoverCollection> DailyUpdate();
 
     // 获取具体周几的更新 1-7

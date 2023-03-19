@@ -13,7 +13,7 @@
         <TextBlock  
             Margin="{StaticResource AppBarBottomThemePadding}"
             Style="{StaticResource TitleTextBlockStyle}"
-            Text="最近更新"/>
+            x:Uid="MainPage_RecentlyUpdated"/>
 
         <Grid x:Name="ContentArea" >
 

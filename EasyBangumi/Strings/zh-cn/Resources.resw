@@ -173,4 +173,31 @@
   <data name="Shell_Bangumi.Content" xml:space="preserve">
     <value>番剧列表</value>
   </data>
+  <data name="BangumiDetail_Description.Text" xml:space="preserve">
+    <value>简介</value>
+  </data>
+  <data name="BangumiDetail_Infos.Text" xml:space="preserve">
+    <value>详细信息</value>
+  </data>
+  <data name="BangumiDetail_Labels.Text" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="BangumiDetail_LiveDate.Text" xml:space="preserve">
+    <value>上线日期</value>
+  </data>
+  <data name="BangumiDetail_Play.Content" xml:space="preserve">
+    <value>播放</value>
+  </data>
+  <data name="BangumiDetail_Score.Text" xml:space="preserve">
+    <value>评分</value>
+  </data>
+  <data name="BangumiDetail_Subscribe.Content" xml:space="preserve">
+    <value>订阅</value>
+  </data>
+  <data name="BangumiDetail_TotalEpisodes.Text" xml:space="preserve">
+    <value>总集数</value>
+  </data>
+  <data name="MainPage_RecentlyUpdated.Text" xml:space="preserve">
+    <value>最近更新</value>
+  </data>
 </root>

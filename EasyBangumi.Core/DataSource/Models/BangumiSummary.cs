@@ -50,6 +50,25 @@ public class BangumiSummary
         }
     }
 
+    public List<Tag> GetTags
+    {
+        get
+        {
+            var tags = new List<Tag>();
+
+            foreach (var tag in Tags)
+            {
+                tags.Add(new Tag()
+                {
+                    Name = tag.Key,
+                    Count = tag.Value
+                });
+            }
+
+            return tags;
+        }
+    }
+
     public string ParseTags
     {
         get

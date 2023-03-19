@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-
+using CommunityToolkit.Mvvm.Input;
 using EasyBangumi.Contracts.ViewModels;
 using EasyBangumi.Core.Contracts.Services;
 using EasyBangumi.Core.DataSource.Models;
@@ -21,13 +21,24 @@ public partial class BangumiDetailViewModel : ObservableRecipient, INavigationAw
         _dataSourceService = dataSourceService;
     }
 
+    public async Task GetBangumiDetailAsync()
+    {
+        // TODO: 异常处理
+        Item = await _dataSourceService.GetInfo(Cover);
+    }
+
+    [RelayCommand]
+    public void AddToSubscribe()
+    {
+        App.MainWindow.ShowMessageDialogAsync("TODO: 订阅番剧的方法。", "出错啦");
+    }
+
     public async void OnNavigatedTo(object parameter)
     {
         if (parameter is BangumiCoverSummary coverSummary)
         {
-            _cover = coverSummary;
-            // TODO: 异常处理
-            Item = await _dataSourceService.GetInfo(coverSummary);
+            Cover = coverSummary;
+            await GetBangumiDetailAsync();
         }
     }
 

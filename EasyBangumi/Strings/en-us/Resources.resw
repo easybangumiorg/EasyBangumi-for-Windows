@@ -118,37 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>纯纯看番</value>
+    <value>EasyBangumi</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
     <value>EasyBangumi</value>
   </data>
   <data name="Shell_Main.Content" xml:space="preserve">
-    <value>主页</value>
+    <value>Home</value>
   </data>
   <data name="Settings_Personalization.Text" xml:space="preserve">
-    <value>个性化</value>
+    <value>Personalization</value>
   </data>
   <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>主题</value>
+    <value>Theme</value>
   </data>
   <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>明亮</value>
+    <value>Light</value>
   </data>
   <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>黑暗</value>
+    <value>Dark</value>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>默认</value>
+    <value>Default</value>
   </data>
   <data name="Settings_About.Text" xml:space="preserve">
-    <value>关于纯纯看番</value>
+    <value>About EasyBangumi for Windows</value>
   </data>
   <data name="Settings_AboutDescription.Text" xml:space="preserve">
-    <value>使用 Compose 开发的看番软件，支持多番剧源（划掉），使用WinUI3开发的看番软件，支持多番剧源。</value>
+    <value>The Bangumi(animation) software developed with WinUI3 supports multiple Bangumi(animation) sources.</value>
   </data>
   <data name="SettingsPage_PrivacyTermsLink.Content" xml:space="preserve">
-    <value>隐私声明</value>
+    <value>Privacy Terms</value>
   </data>
   <data name="SettingsPage_PrivacyTermsLink.NavigateUri" xml:space="preserve">
     <value>https://www.easybangumi.org/</value>
@@ -168,9 +168,36 @@
 &lt;/toast&gt;</value>
   </data>
   <data name="Shell_Bangumi.Content" xml:space="preserve">
-    <value>番剧列表</value>
+    <value>List of Bangumis</value>
   </data>
   <data name="Shell_Calendar.Content" xml:space="preserve">
-    <value>番剧周表</value>
+    <value>Calendar of Bangumis</value>
+  </data>
+  <data name="BangumiDetail_Description.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="BangumiDetail_Infos.Text" xml:space="preserve">
+    <value>Infos</value>
+  </data>
+  <data name="BangumiDetail_Labels.Text" xml:space="preserve">
+    <value>Labels</value>
+  </data>
+  <data name="BangumiDetail_LiveDate.Text" xml:space="preserve">
+    <value>Live Date</value>
+  </data>
+  <data name="BangumiDetail_Play.Content" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="BangumiDetail_Score.Text" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="BangumiDetail_Subscribe.Content" xml:space="preserve">
+    <value>Subscribe</value>
+  </data>
+  <data name="BangumiDetail_TotalEpisodes.Text" xml:space="preserve">
+    <value>Total Episodes</value>
+  </data>
+  <data name="MainPage_RecentlyUpdated.Text" xml:space="preserve">
+    <value>Recently updated</value>
   </data>
 </root>

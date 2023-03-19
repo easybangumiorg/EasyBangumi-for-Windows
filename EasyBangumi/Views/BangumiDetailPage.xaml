@@ -94,12 +94,12 @@
 
                 <StackPanel x:Name="propertiesGroup1" RelativePanel.Below="itemHero">
                     <StackPanel x:Name="statusGroup" Margin="{StaticResource SmallTopMargin}">
-                        <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="上线日期" />
+                        <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" x:Uid="BangumiDetail_LiveDate" />
                         <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.Date, Mode=OneWay}" />
                     </StackPanel>
 
                     <StackPanel x:Name="orderTotalGroup" Margin="{StaticResource SmallTopMargin}">
-                        <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="总集数" />
+                        <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" x:Uid="BangumiDetail_TotalEpisodes" />
                         <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.Item.TotalEpisodes, Mode=OneWay}" />
                     </StackPanel>
                 </StackPanel>
@@ -111,7 +111,7 @@
                     </StackPanel>
 
                     <StackPanel x:Name="orderDateGroup" Margin="{StaticResource SmallTopMargin}">
-                        <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="评分" />
+                        <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" x:Uid="BangumiDetail_Score"/>
                         <RatingControl 
                                 PlaceholderValue="{x:Bind ViewModel.Item.FiveScore, Mode=OneWay}" 
                                 Caption="{x:Bind ViewModel.Item.Score, Mode=OneWay}"
@@ -127,12 +127,13 @@
                         Margin="0,0,0,4"
                         MinWidth="180"
                         Style="{StaticResource ButtonRevealStyle}" 
-                        Content="订阅"/>
+                        x:Uid="BangumiDetail_Subscribe"
+                        Command="{x:Bind ViewModel.AddToSubscribeCommand}"/>
                     <Button 
                         Margin="0,0,0,4"
                         MinWidth="180"
                         Style="{StaticResource AccentButtonStyle}" 
-                        Content="播放" />
+                        x:Uid="BangumiDetail_Play" />
 
                 </StackPanel>
 
@@ -148,7 +149,7 @@
                     <TextBlock
                             Margin="{StaticResource SmallTopMargin}"
                             Style="{ThemeResource SubtitleTextBlockStyle}"
-                            Text="标签" />
+                            x:Uid="BangumiDetail_Labels" />
                     <TextBlock
                             Style="{ThemeResource BodyTextBlockStyle}"
                             Text="{x:Bind ViewModel.Item.ParseTags, Mode=OneWay}" />
@@ -157,7 +158,7 @@
                     <TextBlock
                             Margin="{StaticResource SmallTopMargin}"
                             Style="{ThemeResource SubtitleTextBlockStyle}"
-                            Text="简介" />
+                            x:Uid="BangumiDetail_Description" />
                     <TextBlock
                             Style="{ThemeResource BodyTextBlockStyle}"
                             Text="{x:Bind ViewModel.Item.Summary, Mode=OneWay}" />
@@ -167,7 +168,7 @@
                     <TextBlock
                             Margin="{StaticResource SmallTopMargin}"
                             Style="{ThemeResource SubtitleTextBlockStyle}"
-                            Text="其他信息" />
+                            x:Uid="BangumiDetail_Infos" />
                     <ListView
                             SelectionMode="Single"
                             ItemsSource="{x:Bind ViewModel.Item.GetInfo, Mode=OneWay}"

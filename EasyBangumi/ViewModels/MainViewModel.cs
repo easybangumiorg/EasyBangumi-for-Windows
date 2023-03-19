@@ -15,22 +15,25 @@ public partial class MainViewModel : ObservableRecipient, INavigationAware
     private readonly INavigationService _navigationService;
     private readonly IDataSourceService _dataSourceService;
 
-    public ICommand ItemClickCommand
-    {
-        get;
-    }
-
     public ObservableCollection<BangumiCoverSummary> Source { get; } = new ObservableCollection<BangumiCoverSummary>();
 
     public MainViewModel(INavigationService navigationService, IDataSourceService dataSourceService)
     {
         _navigationService = navigationService;
         _dataSourceService = dataSourceService;
-
-        ItemClickCommand = new RelayCommand<BangumiCoverSummary>(OnItemClick);
     }
 
-    public async void OnNavigatedTo(object parameter)
+    [RelayCommand]
+    private void OnItemClick(BangumiCoverSummary? clickedItem)
+    {
+        if (clickedItem != null)
+        {
+            _navigationService.SetListDataItemForNextConnectedAnimation(clickedItem);
+            _navigationService.NavigateTo(typeof(BangumiDetailViewModel).FullName!, clickedItem);
+        }
+    }
+
+    private async Task GetMainPageAsync()
     {
         Source.Clear();
 
@@ -43,16 +46,13 @@ public partial class MainViewModel : ObservableRecipient, INavigationAware
         }
     }
 
+    public async void OnNavigatedTo(object parameter)
+    {
+        await GetMainPageAsync();
+    }
+
     public void OnNavigatedFrom()
     {
     }
 
-    private void OnItemClick(BangumiCoverSummary? clickedItem)
-    {
-        if (clickedItem != null)
-        {
-            _navigationService.SetListDataItemForNextConnectedAnimation(clickedItem);
-            _navigationService.NavigateTo(typeof(BangumiDetailViewModel).FullName!, clickedItem);
-        }
-    }
 }

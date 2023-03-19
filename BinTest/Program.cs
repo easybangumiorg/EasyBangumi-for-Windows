@@ -63,4 +63,6 @@ async Task TestException()
 
 }
 
-await TestException();
+await TestCalendar();
+
+var dayOfWeek = (Convert.ToInt32(DateTime.Now.DayOfWeek) + 6) % 7;
